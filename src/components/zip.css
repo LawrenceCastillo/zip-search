@@ -5,6 +5,10 @@
     font-family: Verdana, Geneva, sans-serif;
 }
 
+.defaultSearchInput{
+  background-color: #222; 
+}
+
 .searchButton{
   background-color: gray;
   text-transform: uppercase;
