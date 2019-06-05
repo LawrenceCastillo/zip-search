@@ -1,57 +1,17 @@
-```
-class Folder extends Component {
-  constructor(props){
-    super(props);
+# zip-search
+<h1>Tech Talent Pipeline Residency: Hunter College Summer 2019</h1>
+<p><strong>Assignment: API-based city search using React/JS</strong></p>
+<p>This is an exercise to further demonstrate an understanding of React/JS
+and API integration, rendering city data based on user-entered values.</p>
 
-    this.state = {
-      showFiles: false,
-      name: props.name,
-      files: ["A", "B", "C"]
-    }
+<p>Collaboration: <a href="https://github.com/sml2008">Nicole Liang</a>, 
+                 <a href="https://github.com/LawrenceCastillo">Lawrence Castillo</a>, 
 
-    this.changeFileView = this.changeFileView.bind(this);
-    this.renderFiles = this.renderFiles.bind(this);
-    this.renderDefault = this.renderDefault.bind(this);
-    this.listFiles = this.listFiles.bind(this);
-  }
-  changeFileView(){
-    this.setState({ showFiles: !this.state.showFiles});
-  }
-
-  listFiles(){
-    return(
-      <ul>
-        {this.state.files.map((file) =>
-          <li key={file}>{file}</li>
-        )}
-      </ul>
-    );
-  }
-
-  renderFiles(){
-    return(
-      <div>
-        {this.state.name} <button onClick={this.changeFileView}>Show Files</button>
-        {this.listFiles()}
-      </div>
-    )
-  }
-
-  renderDefault(){
-    return(
-      <div>
-        {this.state.name} <button onClick={this.changeFileView}>Show Files</button>
-      </div>
-    )
-  }
-
-
-  render(){
-    if(this.state.showFiles){
-      return this.renderFiles();
-    } else {
-      return this.renderDefault();
-    }
-  }
-}
-```
+<p>Languages:<br>
+          HTML<br>
+          CSS<br>
+          Javascript/JSX<br>
+          React</p>
+<p>Deployment:<br> 
+          Axios<br>
+          Web browser</p>
