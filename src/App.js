@@ -2,12 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from "./components/Home";
+import Zip from "./components/zip";
 
 
 function App() {
   return (
     <div className="App">
       <Home></Home>
+      <Zip/>
     </div>
   );
 }

@@ -9,9 +9,6 @@ class Home extends Component{
           <div className="search">
             Zip Code: <input type="text" placeholder="Try 10016"/>
           </div>
-
-          <div className="results">
-          </div>
         </div>
     );
   }
