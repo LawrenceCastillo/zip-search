@@ -2,6 +2,7 @@
     list-style-type: none;
     text-align: center;
     overflow: hidden;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .searchButton{
@@ -47,9 +48,12 @@
   width: 100%;
   padding: 10px 0px 10px 0px;
   margin: 0px 0px 0px 0px;
+  color: black;
+  font-weight: 200;
 }
 
 li{
   width: 100%;
-  margin-left: 50px;
+  margin: 0px 0px 0px 50px;
+  padding: 0px 0px 0px 0px;
 }

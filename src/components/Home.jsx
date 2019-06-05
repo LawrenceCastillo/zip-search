@@ -7,7 +7,8 @@ class Home extends Component{
         <div className="container">
           <div className="title"><h1>Zip Code Search</h1></div>
           <div className="search">
-            Zip Code: <input type="text" placeholder="Try 10016"/>
+            Zip Code: <input type="text" placeholder="Try 10016" ref="searchZip"/>
+            <buttoN onClick={this.fetchZipData}></button>
           </div>
         </div>
     );
