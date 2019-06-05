@@ -1,74 +1,49 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './zip.css';
-import Definition from './definition';
 
 // Zip should store all the results from the search
 class Zip extends Component {
 
     constructor(props){
-        super(props);
-        this.state = {
-            isSearching: false,
-            isCity: false,
-            // this should store all the data fetched from the API
-            data: []
-        }
+      super(props);
+      this.state = {
+        isSearching: false,
+        isCity: false,
+        // this should store all the data fetched from the API
+        data: []
+      }
 
-        this.renderSearchView = this.renderSearchView.bind(this);
-        this.renderDefault = this.renderDefault.bind(this);
-        this.clearSearch = this.clearSearch.bind(this);
-        this.fetchZipData = this.fetchZipData.bind(this);
-        this.fetchCityData = this.fetchCityData.bind(this);
+      this.renderSearchView = this.renderSearchView.bind(this);
+      this.renderDefault = this.renderDefault.bind(this);
+      this.clearSearch = this.clearSearch.bind(this);
+      this.fetchZipData = this.fetchZipData.bind(this);
+      this.fetchCityData = this.fetchCityData.bind(this);
     }
-        // functions to bind
-            // 1) function pass into the button  to inititate everything
-            // 2) function to create element for each results and append to result container
-            // renderDefaultView to display nothing when there is no search
-            // renderSearchView to display something when there is a search
-            // optional - reset the search status to false when the user no longer wants to search anything
-    // }
-    // componentDidMount(){
-    //     this.fetchZipData();
-    //     this.interval = setInterval(() => this.fetchZipData(),60*100000);
-    // }
 
+    // retrieve location data based on user-defined zipcode values
     fetchZipData(){
-      // alert("testing");
-      // console.log(this.refs.searchZip.value);
       this.setState({isSearching:true});
         axios.get("http://ctp-zip-api.herokuapp.com/zip/" + this.refs.searchZip.value)
-            .then(response => {
-              var result = response.data;
-                // var wanted = [];
-                // var result = response.data.filter(Zips => wanted.includes(Zips.Zipcode));
-                console.log("----------------------------------------------------------------");
-                console.log(result);
-                console.log("----------------------------------------------------------------");
-                this.setState({data: result});
-                console.log(this.state.data);
-            })
-            .catch(err => console.log(err));
+          .then(response => {
+            var result = response.data;
+            this.setState({data: result});
+          })
+          .catch(err => console.log(err));
     }
 
+    // retrieve zipcode data based on user-defined city
     fetchCityData(){
-      // alert("testing");
-      // console.log(this.refs.searchZip.value);
       this.setState({isSearching:true, isCity: true});
         axios.get("http://ctp-zip-api.herokuapp.com/city/" + this.refs.searchCity.value.toUpperCase())
-            .then(response => {
-              var result = response.data;
-                // var wanted = [];
-                // var result = response.data.filter(Zips => wanted.includes(Zips.Zipcode));
-                console.log("----------------------------------------------------------------");
-                console.log(result);
-                console.log("----------------------------------------------------------------");
-                this.setState({data: result});
-                console.log(this.state.data);
-            })
-            .catch(err => console.log(err));
+          .then(response => {
+            var result = response.data;
+            this.setState({data: result});
+          })
+          .catch(err => console.log(err));
     }
 
+    // clear the search result
     clearSearch(){
       this.setState({
         isSearching: false,
@@ -76,7 +51,7 @@ class Zip extends Component {
       });
     }
 
-
+    // render location results based on zipcode search
     renderSearchView(){
       if(!this.state.isCity){
         return(
@@ -109,6 +84,7 @@ class Zip extends Component {
       }
     }
 
+    // render zipcode results based on city search
     renderDefault(){
       return(
         <div className="defaultSearchInput">
@@ -121,7 +97,6 @@ class Zip extends Component {
             Enter City: <input type="text" placeholder="Try SPRINGFIELD" ref="searchCity"/>
             <button onClick={this.fetchCityData}>Search</button>
           </div>
-
 
           <p>No Results</p>
         </div>

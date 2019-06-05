@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './Home.css';
 
-
 class Home extends Component{
   render(){
     return(
@@ -13,20 +12,4 @@ class Home extends Component{
   }
 }
 
-
-
 export default Home;
-
-
-//
-// <header className="navBarContainer">
-//   <nav className="myNavBar">
-//     <div className="navBarLogo"><a href="/">Logo</a></div>
-//     <div className="navBarLinks">
-//       <ul>
-//         <li><a href="/">Campus</a></li>
-//         <li><a href="/">Students</a></li>
-//       </ul>
-//     </div>
-//   </nav>
-// </header>
